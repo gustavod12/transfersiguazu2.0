@@ -1,24 +1,20 @@
-/*
-	Hielo by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-*/
+
 
 var settings = {
 
 	banner: {
 
-		// Indicators (= the clickable dots at the bottom).
+		// Indicadores (= los puntos en los que se puede hacer clic en la parte inferior).
 			indicators: true,
 
-		// Transition speed (in ms)
-		// For timing purposes only. It *must* match the transition speed of "#banner > article".
+		// Velocidad de delay (en ms)
+		// Solo para sincronizacion. Tiene que coincidir con la velocidad de #banner
 			speed: 1500,
 
-		// Transition delay (in ms)
+		// Retardo de delay (en ms)
 			delay: 5000,
 
-		// Parallax intensity (between 0 and 1; higher = more intense, lower = less intense; 0 = off)
+		// Intensidad de Parallax (entre 0 y 1; > = más intenso, menor = menos intenso; 0 = off)
 			parallax: 0.25
 
 	}
@@ -36,7 +32,7 @@ var settings = {
 	});
 
 	/**
-	 * Applies parallax scrolling to an element's background image.
+	 * Aplica el scroll de Parallax a la imagen de fondo de un elemento
 	 * @return {jQuery} jQuery object.
 	 */
 	$.fn._parallax = (skel.vars.browser == 'ie' || skel.vars.mobile) ? function() { return $(this) } : function(intensity) {
@@ -111,7 +107,7 @@ var settings = {
 	};
 
 	/**
-	 * Custom banner slider for Slate.
+	 * Control deslizante de banner personalizado para Slate
 	 * @return {jQuery} jQuery object.
 	 */
 	$.fn._slider = function(options) {
@@ -131,7 +127,7 @@ var settings = {
 
 		}
 
-		// Vars.
+		// Vars
 			var	current = 0, pos = 0, lastPos = 0,
 				slides = [], indicators = [],
 				$indicators,
@@ -140,11 +136,11 @@ var settings = {
 				isLocked = false,
 				i = 0;
 
-		// Turn off indicators if we only have one slide.
+		// Off a los indicadores si solo tenemos una diapositiva
 			if ($slides.length == 1)
 				options.indicators = false;
 
-		// Functions.
+		// Funciones
 			$this._switchTo = function(x, stop) {
 
 				if (isLocked || pos == x)
@@ -155,23 +151,23 @@ var settings = {
 				if (stop)
 					window.clearInterval(intervalId);
 
-				// Update positions.
+				// Actualizar posiciones
 					lastPos = pos;
 					pos = x;
 
-				// Hide last slide.
+				// Oculta ultima slide
 					slides[lastPos].removeClass('top');
 
 					if (options.indicators)
 						indicators[lastPos].removeClass('visible');
 
-				// Show new slide.
+				// Muestra nuevo slide
 					slides[pos].addClass('visible').addClass('top');
 
 					if (options.indicators)
 						indicators[pos].addClass('visible');
 
-				// Finish hiding last slide after a short delay.
+				// Termina de ocultar el ultimo slide despues de un delay
 					window.setTimeout(function() {
 
 						slides[lastPos].addClass('instant').removeClass('visible');
@@ -187,38 +183,38 @@ var settings = {
 
 			};
 
-		// Indicators.
+		// Indicadores
 			if (options.indicators)
 				$indicators = $('<ul class="indicators"></ul>').appendTo($this);
 
-		// Slides.
+		// Slides
 			$slides
 				.each(function() {
 
 					var $slide = $(this),
 						$img = $slide.find('img');
 
-					// Slide.
+					// Slide
 						$slide
 							.css('background-image', 'url("' + $img.attr('src') + '")')
 							.css('background-position', ($slide.data('position') ? $slide.data('position') : 'center'));
 
-					// Add to slides.
+					// Agrega slides
 						slides.push($slide);
 
-					// Indicators.
+					// Indicador
 						if (options.indicators) {
 
 							var $indicator_li = $('<li>' + i + '</li>').appendTo($indicators);
 
-							// Indicator.
+							// Indicator
 								$indicator_li
 									.data('index', i)
 									.on('click', function() {
 										$this._switchTo($(this).data('index'), true);
 									});
 
-							// Add to indicators.
+							// Agrega indicador
 								indicators.push($indicator_li);
 
 						}
@@ -228,17 +224,17 @@ var settings = {
 				})
 				._parallax(options.parallax);
 
-		// Initial slide.
+		// Slide inicial
 			slides[pos].addClass('visible').addClass('top');
 
 			if (options.indicators)
 				indicators[pos].addClass('visible');
 
-		// Bail if we only have a single slide.
+		// Se sale tranqui si solo tenemos un solo slide
 			if (slides.length == 1)
 				return;
 
-		// Main loop.
+		// Loop principal.
 			intervalId = window.setInterval(function() {
 
 				current++;
@@ -259,7 +255,7 @@ var settings = {
 			$header 	= $('#header'),
 			$banner 	= $('.banner');
 
-		// Disable animations/transitions until the page has loaded.
+		//Deshabilite las animaciones/transiciones hasta que se haya cargado la pagin
 			$body.addClass('is-loading');
 
 			$window.on('load', function() {
@@ -268,7 +264,7 @@ var settings = {
 				}, 100);
 			});
 
-		// Prioritize "important" elements on medium.
+		// Priorizar elementos 'importantes' en el medio
 			skel.on('+medium -medium', function() {
 				$.prioritize(
 					'.important\\28 medium\\29',
@@ -292,7 +288,7 @@ var settings = {
 					side: 'right'
 				});
 
-		// Header.
+		// Encabezado - header 
 			if (skel.vars.IEVersion < 9)
 				$header.removeClass('alt');
 
