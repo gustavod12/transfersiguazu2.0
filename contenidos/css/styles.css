@@ -1826,6 +1826,7 @@ asi ya asegurando que el diseño sea responsive en diferentes tamaños de pantal
 
 			.box .image.fit img {
 				border-radius: 0;
+				box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 			}
 
 		.box header h2 {
@@ -1881,7 +1882,7 @@ asi ya asegurando que el diseño sea responsive en diferentes tamaños de pantal
 		border-color: rgba(144, 144, 144, 0.25);
 	}
 
-/* Button */
+/* Botones */
 
 	input[type="submit"],
 	input[type="reset"],
@@ -2869,7 +2870,7 @@ asi ya asegurando que el diseño sea responsive en diferentes tamaños de pantal
 		.wrapper.style3 {
 			background-color: #000;
 			color: #bfbfbf;
-			background-image: url(../../img/Cataratas AR.jpg);
+			background-image: url(../../img/fondo-6.jpg);
 			background-size: cover;
 			background-attachment: fixed;
 			background-position: center;
@@ -3360,6 +3361,7 @@ asi ya asegurando que el diseño sea responsive en diferentes tamaños de pantal
 
 			.gallery .image.fit {
 				margin: 0;
+				box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 			}
 
 		@media screen and (max-width: 980px) {
@@ -3479,6 +3481,7 @@ asi ya asegurando que el diseño sea responsive en diferentes tamaños de pantal
 
 	#header {
 		background: rgba(0, 0, 0, 0.975);
+		background: rgba(0, 0, 0, 0.85); /* Opacidad ajustada */
 		color: #a6a6a6;
 		cursor: default;
 		height: 3.25em;
@@ -3639,6 +3642,7 @@ asi ya asegurando que el diseño sea responsive en diferentes tamaños de pantal
 /* Menu */
 
 	#menu {
+		 background: rgba(0, 0, 0, 0.7);
 		-moz-transform: translateX(20rem);
 		-webkit-transform: translateX(20rem);
 		-ms-transform: translateX(20rem);
@@ -3648,7 +3652,6 @@ asi ya asegurando que el diseño sea responsive en diferentes tamaños de pantal
 		-ms-transition: -ms-transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
 		transition: transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
 		-webkit-overflow-scrolling: touch;
-		background: rgba(0, 0, 0, 0.95);
 		box-shadow: none;
 		color: #000;
 		height: 100%;
@@ -3661,6 +3664,7 @@ asi ya asegurando que el diseño sea responsive en diferentes tamaños de pantal
 		visibility: hidden;
 		width: 20rem;
 		z-index: 10002;
+		backdrop-filter: blur(15px); 
 	}
 
 		#menu > ul {
