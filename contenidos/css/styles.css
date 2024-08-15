@@ -46,6 +46,7 @@
 		-webkit-text-size-adjust: none;
 	}
 
+
 /* Modelo de los Box (reemplazo a los cards) */
 
 	*, *:before, *:after {
@@ -214,6 +215,46 @@
 	}
 
 
+
+	.description {
+    background-color: #f8f8f8;
+    padding: 10px;
+    box-sizing: border-box;
+    border-top: 2px solid #ddd;
+    position: relative;
+}
+
+.title {
+    margin: 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.title:hover {
+    color: #007bff; /* Cambia el color del título al pasar el mouse */
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    font-size: 1em;
+}
+
+.accordion-content p {
+    margin: 5px 0;
+}
+
+
+
+
+}
+
+.image:hover .accordion-content {
+    max-height: 200px; /* Ajusta este valor según el contenido */
+}
 /****COMIENZO DEL CHOCLAZO RESPONSIVE****/
 /****Todo este choclo de abajo hace que todos los elementos sean adaptables y totalmente flexibles, 
 asi ya asegurando que el diseño sea responsive en diferentes tamaños de pantalla.***/
