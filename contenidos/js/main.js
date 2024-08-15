@@ -308,4 +308,20 @@ var settings = {
 
 	});
 
+	document.querySelectorAll('.title').forEach(item => {
+    item.addEventListener('click', () => {
+        const content = item.nextElementSibling;
+        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+    });
+});
+
+
+
+	document.querySelectorAll('.info-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.previousElementSibling;
+        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+    });
+});
+
 })(jQuery);
